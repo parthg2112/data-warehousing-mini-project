@@ -1,0 +1,20 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# macOS files
+.DS_Store
+
+# Data files (optional, but often kept in repo if small. OULAD is small enough but studentVle.csv is large)
+# Since studentVle.csv is 453 MB, we SHOULD ignore it if it's too large for GitHub
+data/studentVle.csv
