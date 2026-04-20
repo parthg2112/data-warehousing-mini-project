@@ -1,0 +1,280 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{url}
+
+\renewcommand{\thefigure}{\Roman{figure}}
+\renewcommand{\thetable}{\Roman{table}}
+\renewcommand{\theequation}{\Roman{equation}}
+
+\begin{document}
+
+\title{Breast Cancer Diagnosis Using Data Mining Techniques:\\A Comparative Study of Na\"ive Bayes, ID3, and KNN Classifiers}
+
+\author{
+\IEEEauthorblockN{Shreshth Goyal, Dayaan Jain, Pratham Kapoor}
+\IEEEauthorblockA{
+Department of Information Technology\\
+Mukesh Patel School of Technology Management \& Engineering, SVKM's NMIMS University\\
+Mumbai, India
+}
+}
+
+\maketitle
+
+\begin{abstract}
+This paper presents a comparative study of data mining techniques for breast cancer diagnosis using the Wisconsin Breast Cancer Dataset, which contains 569 patient records and 30 cytological features derived from Fine Needle Aspiration (FNA) images. In the proposed workflow, the pre-scaled numerical attributes are transformed into a categorical dataset through training-set quantile binning, producing interpretable labels such as Low, Medium, and High. This transformation enables the use of a classical Categorical Na\"ive Bayes classifier with Laplace-smoothed likelihood estimation, while also supporting discrete-feature learning for ID3 and encoded categorical comparison for K-Nearest Neighbour (KNN). The experimental pipeline includes data acquisition, preprocessing, categorical conversion, train-test splitting, model training, and evaluation using accuracy, precision, recall, and F1-score. Results on the held-out test set show that Categorical Na\"ive Bayes provides the strongest overall balance of performance, with an accuracy of 92.98\%, precision of 91.49\%, recall of 91.49\%, and F1-score of 91.49\%. KNN follows closely with 92.11\% accuracy, while ID3 achieves the highest precision of 92.86\% but lower recall. The study demonstrates that categorical transformation produces an academically consistent and practically effective diagnostic pipeline for comparative breast cancer classification.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Breast cancer diagnosis, Wisconsin Breast Cancer Dataset, Categorical Na\"ive Bayes, ID3, K-Nearest Neighbour, data mining, classification
+\end{IEEEkeywords}
+
+\section{Introduction}
+Breast cancer remains one of the most prevalent and life-threatening diseases affecting women worldwide. Early and accurate diagnosis is essential because it directly influences treatment planning, disease management, and survival outcomes. With the rapid growth of healthcare data generated from electronic health records, imaging systems, and clinical registries, data mining and machine learning techniques have become increasingly important for supporting diagnostic decision-making.
+
+Data mining offers the ability to analyze large clinical datasets, detect hidden patterns, and generate predictive models that help distinguish malignant and benign tumours. Compared with fully manual diagnostic workflows, such computational models provide faster and more consistent decision support. In this study, three widely used data mining classifiers---Categorical Na\"ive Bayes, ID3, and K-Nearest Neighbour (KNN)---are implemented and compared for binary breast cancer diagnosis.
+
+\subsection{Problem Statement and Objectives}
+Despite significant advances in medical imaging and pathology, breast cancer diagnosis remains challenging because misclassification and delayed detection can have severe clinical consequences. Traditional diagnostic procedures rely on manual analysis of biopsy samples, histopathological slides, and clinical measurements. These methods are time-intensive, subject to inter-observer variability, and difficult to scale in the presence of high-dimensional biomedical data. The Wisconsin Breast Cancer Dataset contains 30 features derived from digitized FNA cytology, and manual interpretation of such multidimensional information is not practical at scale.
+
+The present work addresses this problem by developing a data mining framework for the binary classification of malignant and benign breast tumours. The study has four main objectives. First, it investigates the structure and characteristics of the Wisconsin Breast Cancer Dataset. Second, it transforms the supplied pre-scaled numerical features into categorical levels using a consistent and leakage-safe binning strategy. Third, it implements and compares three classifiers---Categorical Na\"ive Bayes, ID3, and KNN---under a common experimental pipeline. Finally, it evaluates the models using standard performance measures, namely accuracy, precision, recall, and F1-score, in order to identify the most suitable classifier for diagnostic use.
+
+\section{Literature Review}
+\subsection{Clinical Data Warehousing and Breast Cancer Analytics}
+Clinical data warehouses have played a significant role in modern healthcare analytics by integrating heterogeneous medical records from multiple sources into a single structured repository. Hamoud \textit{et al.} proposed a cancer data warehouse architecture that supports clinical decision systems through Extract--Transform--Load processing and multidimensional analysis. Ammar \textit{et al.} extended this line of research by presenting a machine-learning-oriented warehouse architecture for breast cancer diagnosis and prognosis, emphasizing the importance of structured diagnosis archives for predictive analytics.
+
+Large clinical repositories have also been used to study complex breast cancer cohorts. Kim \textit{et al.} analyzed refractory metastatic triple-negative breast cancer using a clinical data warehouse, showing how large-scale patient records can reveal meaningful prognostic differences. Leggat-Barr \textit{et al.} further showed that combining electronic health record data warehouses with self-reported patient information improves breast cancer case identification.
+
+\subsection{Machine Learning and Data Mining for Diagnosis}
+Several studies have demonstrated the usefulness of machine learning and data mining methods for breast cancer classification. Senturk and Kara conducted a comparative analysis of seven algorithms, including Na\"ive Bayes, decision trees, and kNN, using the Wisconsin Breast Cancer Dataset. Diz \textit{et al.} likewise showed that data mining methods can improve diagnostic accuracy relative to traditional manual assessment. Decision-tree-based approaches are especially valued for their interpretability; Sumbaly \textit{et al.} reported strong performance with J48 decision trees on the same dataset.
+
+More recent comparative studies have highlighted the importance of selecting both suitable algorithms and suitable features. Alhasani \textit{et al.} showed that decision-tree models can perform extremely well when supported by feature-selection techniques such as information gain. Eltalhi and Kutrani surveyed a wide range of breast cancer prediction methods and concluded that decision trees, Na\"ive Bayes, support vector machines, and nearest-neighbour approaches remain among the most frequently studied techniques in this area.
+
+\subsection{Research Gap}
+Although many studies compare classifiers on benchmark breast cancer datasets, several gaps remain. First, many works rely heavily on accuracy alone and give comparatively less attention to interpretability and clinical applicability. Second, fewer studies investigate how a common categorical representation can support probabilistic, tree-based, and instance-based learners under the same framework. This study addresses that gap by converting the pre-scaled numerical dataset into a unified categorical feature space and then comparing Categorical Na\"ive Bayes, ID3, and KNN under consistent preprocessing and evaluation conditions.
+
+\section{Methodology}
+\subsection{Dataset Description}
+The dataset used in this work is the Wisconsin Breast Cancer Dataset, a widely used benchmark in biomedical machine learning. The version employed here contains 569 patient records and 30 cytological attributes derived from digitized images of FNA specimens. The target variable is \texttt{diagnosis}, where 1 denotes malignant and 0 denotes benign. The class distribution is 357 benign cases (62.7\%) and 212 malignant cases (37.3\%).
+
+The 30 features are grouped into three statistical views: mean, standard error, and worst value. These views are computed from ten underlying cellular descriptors: radius, texture, perimeter, area, smoothness, compactness, concavity, concave points, symmetry, and fractal dimension. Since the source file is already scaled, preprocessing begins with data verification rather than repeated normalization.
+
+\subsection{Preprocessing and Categorical Conversion}
+The dataset was first checked for integrity. No missing values were present across the 569 records and 31 columns, all feature columns were of type \texttt{float64}, and the target column was of type \texttt{int64}. Because the study aimed to compare three models within a common discrete-feature framework, the numerical feature space was transformed into a categorical dataset.
+
+For each feature, two quantile thresholds were learned from the training partition using the 33.33rd and 66.67th percentiles. These thresholds divided each feature into three labelled intervals: Low, Medium, and High. Let $q_{i,1}$ and $q_{i,2}$ denote the two thresholds for feature $x_i$. The categorical mapping is given by
+\begin{equation}
+x_i^{(\mathrm{cat})} =
+\begin{cases}
+\text{Low}, & x_i \leq q_{i,1},\\
+\text{Medium}, & q_{i,1} < x_i \leq q_{i,2},\\
+\text{High}, & x_i > q_{i,2}.
+\end{cases}
+\end{equation}
+
+The thresholds learned from the training set were then applied unchanged to the test set in order to avoid data leakage. For computational use in Categorical Na\"ive Bayes and KNN, the resulting labels were encoded into non-negative integers using a consistent feature-wise category map.
+
+\subsection{Train--Test Split and Experimental Setup}
+The dataset was shuffled and then partitioned into training and testing subsets using a reproducible 80:20 split with random state 42. This produced 455 training samples and 114 testing samples. Table~\ref{tab:split} summarizes the partition.
+
+\begin{table}[!t]
+\caption{Train--test split summary}
+\label{tab:split}
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Subset & Instances & Benign & Malignant & Percentage \\
+\midrule
+Training Set & 455 & 290 & 165 & 80\% \\
+Test Set & 114 & 67 & 47 & 20\% \\
+Total & 569 & 357 & 212 & 100\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The full system pipeline is illustrated conceptually in Fig.~\ref{fig:pipeline}.
+
+\begin{figure}[!t]
+\centering
+\fbox{
+\parbox{0.92\columnwidth}{
+\centering
+Data Acquisition $\rightarrow$ Preprocessing and Categorical Conversion $\rightarrow$ Train--Test Split $\rightarrow$ Model Training (Categorical NB, ID3, KNN) $\rightarrow$ Evaluation
+}}
+\caption{System architecture of the proposed breast cancer classification pipeline.}
+\label{fig:pipeline}
+\end{figure}
+
+\subsection{Categorical Na\"ive Bayes}
+Na\"ive Bayes is a probabilistic classifier based on Bayes' theorem under the assumption of conditional independence between features given the class label. Since the transformed dataset is categorical, a classical Categorical Na\"ive Bayes formulation was used instead of Gaussian Na\"ive Bayes. For a feature vector $\mathbf{x} = (x_1, x_2, \ldots, x_n)$ and class $C_k$, the posterior score is
+\begin{equation}
+P(C_k \mid \mathbf{x}) = \frac{P(C_k)\prod_{i=1}^{n} P(x_i \mid C_k)}{P(\mathbf{x})}.
+\end{equation}
+The predicted class is therefore
+\begin{equation}
+\hat{y} = \arg\max_{k} \left[P(C_k)\prod_{i=1}^{n} P(x_i \mid C_k)\right].
+\end{equation}
+
+For categorical features, the conditional likelihood of observing category value $v$ for feature $x_i$ under class $C_k$ is estimated using Laplace smoothing:
+\begin{equation}
+P(x_i = v \mid C_k) = \frac{N_{i,v,k}+1}{N_k + m_i},
+\end{equation}
+where $N_{i,v,k}$ is the number of training instances in class $C_k$ for which feature $x_i$ takes category $v$, $N_k$ is the number of training instances in class $C_k$, and $m_i$ is the number of possible categories for feature $x_i$.
+
+Implementation-wise, each feature was discretized, encoded into integer categories, and counted class-wise. During prediction, log-posteriors were accumulated from class priors and smoothed likelihoods in order to avoid numerical underflow.
+
+\subsection{ID3 Decision Tree}
+ID3 (Iterative Dichotomiser 3) constructs a decision tree by selecting the attribute with the highest information gain at each node. Because the dataset is already categorical after preprocessing, the model can branch directly on categorical values without further transformation.
+
+The entropy of a dataset $S$ with respect to binary classification is
+\begin{equation}
+H(S) = -\sum_{c \in \{0,1\}} p_c \log_2 p_c,
+\end{equation}
+where $p_c$ denotes the proportion of instances belonging to class $c$. The information gain of splitting $S$ on attribute $A$ is
+\begin{equation}
+IG(S,A) = H(S) - \sum_{v \in \mathrm{Values}(A)} \frac{|S_v|}{|S|}H(S_v),
+\end{equation}
+where $S_v$ is the subset of $S$ for which attribute $A$ takes value $v$. The best split attribute is
+\begin{equation}
+A^\ast = \arg\max_A IG(S,A).
+\end{equation}
+
+To keep the tree manageable, the top ten features by information gain were selected before training. The resulting tree was grown recursively to a maximum depth of five. The root attribute learned by the implementation was \texttt{radius\_worst}.
+
+\subsection{K-Nearest Neighbour}
+KNN is a non-parametric and instance-based classifier that predicts the class of a query point by examining the labels of the $k$ nearest training samples. Since the project uses categorical feature encodings, Hamming distance was used to measure similarity between encoded vectors:
+\begin{equation}
+d(\mathbf{x}_q, \mathbf{x}_i) = \sum_{j=1}^{n} \mathbb{1}[x_{q,j} \neq x_{i,j}],
+\end{equation}
+where $\mathbb{1}[\cdot]$ is the indicator function. Prediction is made through majority voting:
+\begin{equation}
+\hat{y} = \arg\max_c \sum_{i \in N_k(\mathbf{x}_q)} \mathbb{1}[y_i = c],
+\end{equation}
+where $N_k(\mathbf{x}_q)$ denotes the set of the $k$ nearest neighbours of $\mathbf{x}_q$.
+
+In this study, KNN was implemented with $k=5$. This choice provides a reasonable compromise between sensitivity to local structure and robustness against noisy single-neighbour decisions.
+
+\subsection{Evaluation Metrics}
+Performance was measured using four standard classification metrics derived from the confusion matrix: true positives (TP), true negatives (TN), false positives (FP), and false negatives (FN). Since malignant diagnosis is the clinically critical case, the positive class corresponds to malignant tumours.
+
+Accuracy is defined as
+\begin{equation}
+\mathrm{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}.
+\end{equation}
+Precision is defined as
+\begin{equation}
+\mathrm{Precision} = \frac{TP}{TP + FP}.
+\end{equation}
+Recall is defined as
+\begin{equation}
+\mathrm{Recall} = \frac{TP}{TP + FN}.
+\end{equation}
+Finally, the F1-score is
+\begin{equation}
+\mathrm{F1} = \frac{2 \cdot \mathrm{Precision} \cdot \mathrm{Recall}}{\mathrm{Precision} + \mathrm{Recall}}.
+\end{equation}
+
+Among these metrics, recall is especially important in healthcare applications because it reflects the model's ability to identify malignant cases. A low recall means more false negatives, which corresponds to missed malignancies.
+
+\section{Results and Discussion}
+\subsection{Confusion Matrices}
+The confusion matrices for the three classifiers are summarized in Tables~\ref{tab:nb}, \ref{tab:id3}, and \ref{tab:knn}. For Categorical Na\"ive Bayes, the model correctly identified 63 benign cases and 43 malignant cases, with 4 false positives and 4 false negatives. ID3 correctly identified 64 benign cases and 39 malignant cases, with 3 false positives and 8 false negatives. KNN correctly identified 63 benign cases and 42 malignant cases, with 4 false positives and 5 false negatives.
+
+\begin{table}[!t]
+\caption{Confusion matrix for Categorical Na\"ive Bayes}
+\label{tab:nb}
+\centering
+\begin{tabular}{lcc}
+\toprule
+ & Predicted Benign & Predicted Malignant \\
+\midrule
+Actual Benign & TN = 63 & FP = 4 \\
+Actual Malignant & FN = 4 & TP = 43 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!t]
+\caption{Confusion matrix for ID3}
+\label{tab:id3}
+\centering
+\begin{tabular}{lcc}
+\toprule
+ & Predicted Benign & Predicted Malignant \\
+\midrule
+Actual Benign & TN = 64 & FP = 3 \\
+Actual Malignant & FN = 8 & TP = 39 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!t]
+\caption{Confusion matrix for KNN}
+\label{tab:knn}
+\centering
+\begin{tabular}{lcc}
+\toprule
+ & Predicted Benign & Predicted Malignant \\
+\midrule
+Actual Benign & TN = 63 & FP = 4 \\
+Actual Malignant & FN = 5 & TP = 42 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Comparative Performance}
+Table~\ref{tab:metrics} provides the comparative performance of all three classifiers on the held-out test set.
+
+\begin{table}[!t]
+\caption{Performance comparison of the classifiers}
+\label{tab:metrics}
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Classifier & Accuracy & Precision & Recall & F1-score \\
+\midrule
+Categorical Na\"ive Bayes & 92.98\% & 91.49\% & 91.49\% & 91.49\% \\
+ID3 Decision Tree & 90.35\% & 92.86\% & 82.98\% & 87.64\% \\
+KNN ($k=5$) & 92.11\% & 91.30\% & 89.36\% & 90.32\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The results indicate that Categorical Na\"ive Bayes achieved the best overall balance among the evaluated models. It produced the highest accuracy, recall, and F1-score while maintaining strong precision. These results suggest that the categorical transformation is well aligned with the probabilistic assumptions of the model.
+
+ID3 produced the highest precision, which indicates strong selectivity in predicting malignant cases. However, its lower recall and higher number of false negatives make it less attractive for diagnostic use, where missed malignancies are especially costly. KNN performed competitively and remained close to Categorical Na\"ive Bayes across all evaluation measures. The use of Hamming distance on encoded categorical vectors proved effective, although it did not surpass the Na\"ive Bayes model on this dataset.
+
+\section{Conclusion}
+This study presented a comparative framework for breast cancer diagnosis using Categorical Na\"ive Bayes, ID3, and KNN on a categorically transformed version of the Wisconsin Breast Cancer Dataset. The proposed workflow preserved the integrity of the supplied pre-scaled features, transformed them into an interpretable categorical representation, and trained all three classifiers within a common pipeline.
+
+The results show that Categorical Na\"ive Bayes is the strongest overall classifier in this setting, achieving 92.98\% accuracy, 91.49\% precision, 91.49\% recall, and 91.49\% F1-score. KNN also demonstrated strong performance, whereas ID3 provided strong interpretability and the highest precision but lower recall. Overall, the study demonstrates that categorical preprocessing can provide a consistent and practically effective basis for comparing multiple data mining classifiers in breast cancer diagnosis.
+
+\subsection{Future Scope}
+Several extensions may improve the present work. Feature-selection methods such as mutual information or entropy-based ranking may further refine the input space. Adaptive or optimized discretization strategies may produce stronger categorical representations. Hyperparameter optimization could be used to tune KNN and tree-depth settings more systematically. Ensemble methods such as Random Forest, Gradient Boosting, or stacking may also improve robustness. Finally, evaluating the framework on larger and more diverse clinical datasets would help assess its generalizability and practical applicability.
+
+\begin{thebibliography}{99}
+\bibitem[I]{ref1} A. Hamoud, H. Adday, T. Obaid, and R. Hameed, ``Design and implementing cancer data warehouse to support clinical decisions,'' \textit{International Journal of Scientific \& Engineering Research}, vol. 7, no. 2, pp. 1271--1285, 2016.
+
+\bibitem[II]{ref2} M. B. Ammar, F. L. Ayachi, R. Ksantini, and H. Mahjoubi, ``Data warehouse for machine learning: Application to breast cancer diagnosis,'' in \textit{Procedia Computer Science}, vol. 196, pp. 692--698, 2022.
+
+\bibitem[III]{ref3} H. Kim, H. J. Kim, H. Kim, H. R. Kim, H. Jo, J. Hong, R. Kim, J. Y. Kim, J. S. Ahn, Y. H. Im, and S. K. Lee, ``Real-world data from a refractory triple-negative breast cancer cohort selected using a clinical data warehouse approach,'' \textit{Cancers}, vol. 13, no. 22, p. 5835, 2021.
+
+\bibitem[IV]{ref4} K. Leggat-Barr, R. Ryu, M. Hogarth, A. Stover-Fiscalini, L. V. T. Veer, H. L. Park, T. Lewis, C. Thompson, A. Borowsky, R. A. Hiatt, and A. LaCroix, ``Early ascertainment of breast cancer diagnoses comparing self-reported questionnaires and electronic health record data warehouse: the wisdom study,'' \textit{JCO Clinical Cancer Informatics}, vol. 7, p. e2300019, 2023.
+
+\bibitem[V]{ref5} Z. K. Senturk and R. Kara, ``Breast cancer diagnosis via data mining: performance analysis of seven different algorithms,'' \textit{Computer Science \& Engineering: An International Journal}, vol. 4, no. 1, pp. 35--46, 2014.
+
+\bibitem[VI]{ref6} J. Diz, G. Marreiros, and A. Freitas, ``Applying data mining techniques to improve breast cancer diagnosis,'' \textit{Journal of Medical Systems}, vol. 40, no. 9, p. 203, 2016.
+
+\bibitem[VII]{ref7} R. Sumbaly, N. Vishnusri, and S. Jeyalatha, ``Diagnosis of breast cancer using decision tree data mining technique,'' \textit{International Journal of Computer Applications}, vol. 98, no. 10, 2014.
+
+\bibitem[VIII]{ref8} A. T. Alhasani, H. Alkattan, A. A. Subhi, E. S. M. El-Kenawy, and M. M. Eid, ``A comparative analysis of methods for detecting and diagnosing breast cancer based on data mining,'' \textit{Journal of Artificial Intelligence and Metaheuristics}, vol. 4, no. 2, pp. 8--17, 2023.
+
+\bibitem[IX]{ref9} S. Eltalhi and H. Kutrani, ``Breast cancer diagnosis and prediction using machine learning and data mining techniques: a review,'' \textit{IOSR Journal of Dental and Medical Sciences}, vol. 18, no. 4, pp. 85--94, 2019.
+\end{thebibliography}
+
+\end{document}
