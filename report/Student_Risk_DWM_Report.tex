@@ -11,22 +11,68 @@
 \renewcommand{\thetable}{\Roman{table}}
 \renewcommand{\theequation}{\Roman{equation}}
 
-\graphicspath{{figures/}}
+\graphicspath{{../figures/}{./}}
 
 \begin{document}
 
-\title{Student Assessment Risk Prediction Using Logistic Regression from Scratch:\\An OULAD-Based Educational Data Mining Study}
+\begin{titlepage}
+\begin{centering}
+	\vspace*{1cm}
 
-\author{
-\IEEEauthorblockN{Parth Gupta}
-\IEEEauthorblockA{
-Department of Information Technology\\
-Mukesh Patel School of Technology Management \& Engineering, SVKM's NMIMS University\\
-Mumbai, India
-}
-}
+	{\large A Report on}
 
-\maketitle
+	\vspace{0.6cm}
+
+	{\large \textbf{Student Assessment Risk Prediction Using Logistic Regression from Scratch:}}
+
+	\vspace{0.3cm}
+
+	{\large \textbf{An OULAD-Based Educational Data Mining Study}}
+
+	\vspace{1cm}
+
+	{\large Submitted By}
+
+	\vspace{0.4cm}
+
+	{\large Heet Patel A040}
+
+	\vspace{0.3cm}
+
+	{\large Parth Gupta A017}
+
+	\vspace{0.8cm}
+
+	{\large Under The Guidance Of}
+
+	\vspace{0.4cm}
+
+	{\large \textbf{Dr. Masooda Modak}}
+
+	\vspace{1.5cm}
+
+	\IfFileExists{logo.jpeg}{
+		\includegraphics[width=4cm]{logo.jpeg}
+	}{
+		\fbox{\parbox[c][4cm][c]{4cm}{\centering Logo missing}}
+	}
+
+	\vspace{1cm}
+
+	{\large \textbf{Mukesh Patel School of Technology \& Management Engineering}}
+
+	\vspace{0.4cm}
+
+	{\large \textbf{Department of Mechatronics Engineering}}
+
+	\vspace{0.4cm}
+
+	{\large Vile Parle (w), Mumbai- 400056}
+
+	\vspace*{\fill}
+
+\end{centering}
+\end{titlepage}
 
 \begin{abstract}
 This paper presents an educational-data-mining pipeline that predicts whether an individual course assessment will be a High Risk event for students, using the Open University Learning Analytics Dataset (OULAD). Three OULAD tables are joined: \texttt{assessments.csv} (assessment metadata), \texttt{studentAssessment.csv} (per-student scores), and \texttt{vle.csv} (Virtual Learning Environment resource catalog). An assessment is labelled High Risk if at least 10\% of the students who submitted it scored below the OULAD pass threshold of 40. Thirteen features are engineered from the three tables, spanning assessment metadata, VLE catalog aggregates, and a leave-one-out \emph{peer fail-rate} signal derived from neighbouring assessments in the same module. A Logistic Regression classifier is implemented entirely from first principles---no machine learning library is used---and trained with class-weighted gradient descent on a class-stratified $80$/$20$ split of the 188 retained assessments. The final model achieves $78.38\%$ accuracy, $33.33\%$ precision, $100.00\%$ recall, and $50.00\%$ F1-score on the held-out test set, detecting every High Risk assessment (TP$=4$, TN$=25$, FP$=8$, FN$=0$). The recall-first behaviour is the clinically appropriate operating point for an early-warning system, where missed cases are substantially more costly than reviewable false alarms. A deliberate ablation against a leakage-exposed baseline and an unweighted variant quantifies the contribution of each design choice.
