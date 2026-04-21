@@ -353,6 +353,84 @@ That is the entire learning algorithm. Twenty lines. The notebook's version has 
 
 ---
 
+## Part F — Clearing up a common misconception: "Derived labels aren't real labels, use k-means instead"
+
+This section directly addresses the faculty objection:
+
+> *"Logistic Regression can only be used for classification, and for classification there must already be a label column in the dataset listing High Risk / Low Risk. Since you derived the label from a rule (`fail_rate >= 0.10`), this is not a supervised problem — you should have used an unsupervised algorithm like K-Means."*
+
+There are **three separate mistakes tangled together** in that argument. Untangling them:
+
+### F1. The label does **not** have to be pre-printed in the CSV
+
+Supervised learning needs one thing: **a known target value for every training row at training time**. It is completely silent on where that value came from. The target can be:
+
+| Source of the label | Example |
+|---|---|
+| Manually annotated by a human | ImageNet (humans tag each image) |
+| Captured from user behaviour | Spam filter (users click "mark as spam") |
+| Read from a ground-truth record later | Credit default (did the borrower repay within 90 days? — known only in hindsight) |
+| Diagnosed by an expert | Breast-cancer benign/malignant (pathologist reviews the biopsy) |
+| **Computed from raw data by a rule** | **Our project: `fail_rate ≥ 0.10`** |
+
+The last row is how most real-world ML systems work. You almost never ship a CSV where column 14 happens to be the exact label you want. You derive it. Spam filters don't come with a `spam/ham` column baked in — teams *construct* the label by aggregating user clicks. Nobody looks at Gmail and says "that's unsupervised because the dataset didn't arrive with spam labels attached." The label-derivation step is called **label engineering**, and it's a completely standard, well-documented phase of any supervised pipeline.
+
+**The rule for distinguishing supervised from unsupervised is simple:**
+
+> At training time, do I know the correct answer for each row — yes or no?
+
+- *Yes* → supervised (classification or regression).
+- *No* → unsupervised (clustering, dimensionality reduction, anomaly detection).
+
+We compute `risk_level` for all 188 rows **before training**. So we know the answer for every row. Therefore: supervised.
+
+### F2. K-Means would actively make the problem worse, not solve it
+
+K-Means is a **clustering** algorithm. Clustering's purpose is to find structure in data that has **no** labels. The output of K-Means is "this row belongs to group 2" — where group 2 has no semantic meaning by itself. K-Means has no concept of "High Risk". It has no `y`, no target, no right answer to aim for.
+
+If we ran K-Means on our 13 features with `k = 2`, we would get two clusters, but:
+
+1. **We don't know which cluster means "High Risk".** We'd have to manually inspect cluster centroids and *assign a label* — which is exactly the rule-based labelling step the faculty claims is disqualifying. We haven't avoided the rule; we've just pushed it further down the pipeline, without the benefit of a ground-truth target during training.
+2. **The clusters would optimise geometric distance, not risk prediction.** K-Means minimises within-cluster Euclidean distance. There is no reason to believe the "close in feature space" partition matches the "assessments where ≥10% of students fail" partition. The two objectives are unrelated.
+3. **We'd lose the ability to measure accuracy, precision, recall, or F1.** Those metrics require comparing predictions against a known truth. K-Means gives us no truth to compare against, so we couldn't even prove the model works.
+4. **At deployment, we still couldn't predict new assessments cleanly.** A new 2025J assessment would get placed in the nearest cluster, but that's geometric proximity, not "probability this fails". We wouldn't have a probability at all.
+
+K-Means is the right tool when you genuinely have no idea what the groups are and want the data to speak (e.g. customer segmentation, exploratory analysis). It's the wrong tool when you already know the outcome you care about (High Risk vs. Low Risk) and just need a model that predicts it.
+
+### F3. The "circularity" worry — are we just predicting our own rule?
+
+This is the most sophisticated version of the objection, and it deserves an honest answer: *"If the label is just `fail_rate ≥ 0.10`, isn't the model trivially predicting something we already computed?"*
+
+**No, because the model never sees `fail_rate`.**
+
+Look carefully at the pipeline:
+
+- `fail_rate` is computed once, from `studentAssessment.csv`, and is used **only** to set `risk_level`.
+- The 13 input features come from **`assessments.csv` and `vle.csv` alone** (plus the leave-one-out `peer_fail_rate`, which never contains the row's own fail-rate). **None of these are `fail_rate`**. None of them is derived from the row's own student scores.
+- So at prediction time the model sees only: *module, presentation, assessment type, date, weight, a few binary flags, three VLE aggregates, and the fail-rates of other assessments in the same module*. From those, it has to guess whether **this** assessment will have fail-rate ≥ 10%.
+- That is a **genuine predictive problem.** The rule `fail_rate ≥ 0.10` tells us the **answer**; it is not one of the **inputs**. Learning to predict the answer from inputs that don't contain it is the whole point of supervised learning.
+
+The concrete production scenario makes this obvious. Imagine a 2025J presentation being planned today. We have every one of our 13 features for each proposed assessment (the module, the presentation code, the type, the due date, the weight, the VLE catalog that will be provided, and the historical peer fail-rate in the same module). We do **not** have student scores, because students haven't sat the assessment yet — that's the whole reason we need the model. Our LR takes the 13 features and outputs a probability of High Risk. That probability is a real prediction about a future event, even though the label it was trained on was computed from historical scores.
+
+This is identical in structure to medical risk prediction: a radiologist labels 10,000 X-rays as "cancer / no cancer" using biopsy results we only have for *past* patients; we train a classifier on the images (not the biopsies); at deployment the classifier sees a new X-ray (no biopsy yet) and outputs a probability. The label comes from a downstream ground-truth source that doesn't exist at prediction time. Exactly our setup.
+
+### F4. When the faculty's objection *would* be correct
+
+To be fair to the faculty position, there are two scenarios where her critique would land:
+
+1. **If we had used `fail_rate` itself as a feature.** Then the model would trivially learn "if `fail_rate ≥ 0.10` → output 1, else 0" with 100% accuracy. That *would* be circular, and it's precisely the target-leakage trap we explicitly avoid — see Section V.B of the LaTeX report.
+2. **If we had no way to compute labels at all** — e.g. if `studentAssessment.csv` simply didn't exist. Then supervised learning would be off the table and we'd be forced into clustering or some other unsupervised method. But we do have `studentAssessment.csv`, so this branch never applies.
+
+Neither of those scenarios is what we did, so neither objection bites.
+
+### F5. Viva-ready rebuttal (one paragraph to deliver calmly)
+
+> *Ma'am, supervised learning requires that we have a known target value for every training row — it does not require the target to be pre-printed in the CSV. In real-world ML this is almost never the case. Spam filters derive their "spam" label from user behaviour, credit models derive "default" from hindsight records, medical classifiers derive their label from later biopsies. In our project we derive `risk_level` once, from `studentAssessment.csv`, using a published OULAD pass-mark rule — that's called **label engineering** and it's a standard pipeline step. Once derived, we have 188 rows each with a known label, which by definition makes it a supervised classification problem. K-Means would be wrong here because K-Means has no target, no measurable accuracy, and its clusters would optimise geometric distance rather than "will ≥10% of students fail this assessment". Critically, our 13 input features never include `fail_rate` itself, so the model is not predicting its own rule — it's predicting a future outcome from assessment metadata and environmental context that would also be available at deployment, when student scores don't yet exist. This is the same structure as every production classifier built on top of derived labels.*
+
+Polite, grounded, and correct. If pushed further, walk through Part F1–F4 one at a time.
+
+---
+
 ## One-line summary for the viva panel
 
 > *We built a binary-classifier pipeline on the OULAD dataset that flags High Risk assessments before a course presentation begins, using 13 engineered features (assessment metadata + VLE catalog aggregates + a leakage-free peer fail-rate) and a class-weighted Logistic Regression we implemented from scratch in pure Python. On a stratified test split, it catches 100% of the risky assessments at the cost of some reviewable false alarms — the correct operating point for an early-warning system.*
