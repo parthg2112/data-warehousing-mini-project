@@ -18,3 +18,6 @@ env/
 # Data files (optional, but often kept in repo if small. OULAD is small enough but studentVle.csv is large)
 # Since studentVle.csv is 453 MB, we SHOULD ignore it if it's too large for GitHub
 data/studentVle.csv
+
+# Claude Code folder
+.claude/
