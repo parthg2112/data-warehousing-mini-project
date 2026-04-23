@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2026.3.31)  20 APR 2026 23:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2026.3.31)  23 APR 2026 09:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -286,10 +286,6 @@ Package pdftex.def Info: logo.jpeg  used on input line 58.
 
 
 {C:/Users/USER/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/base/8r.enc} <./logo.jpeg>]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 78.
- (C:\Users\USER\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
 LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
  (C:\Users\USER\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -299,160 +295,216 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
-
-Underfull \hbox (badness 1845) in paragraph at lines 105--106
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 103.
+(C:\Users\USER\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 1845) in paragraph at lines 103--104
 []\OT1/ptm/m/n/10 Three OULAD ta-bles are used. \OT1/pcr/m/n/10 assessments.csv
  []
 
 
-Underfull \hbox (badness 1748) in paragraph at lines 105--106
+Underfull \hbox (badness 1748) in paragraph at lines 103--104
 \OT1/ptm/m/n/10 GGG) across eight pre-sen-ta-tions from 2013J to 2014J,
  []
 
 
-Underfull \hbox (badness 1584) in paragraph at lines 105--106
+Underfull \hbox (badness 1584) in paragraph at lines 103--104
 \OT1/ptm/m/n/10 Exam), \OT1/pcr/m/n/10 date \OT1/ptm/m/n/10 (due day, off-set from pre-sen-ta-tion start),
  []
 
+
+Underfull \hbox (badness 4378) in paragraph at lines 103--104
+\OT1/ptm/m/n/10 tiv-ity type. Af-ter an in-ner join of as-sess-ments with
+ []
+
+<../figures/fig_assessment_type_dist.png, id=8, 426.393pt x 281.853pt>
+File: ../figures/fig_assessment_type_dist.png Graphic file (type png)
+<use ../figures/fig_assessment_type_dist.png>
+Package pdftex.def Info: ../figures/fig_assessment_type_dist.png  used on input line 109.
+(pdftex.def)             Requested size: 214.20154pt x 141.58846pt.
+<../figures/fig_weight_dist.png, id=10, 498.663pt x 281.853pt>
+File: ../figures/fig_weight_dist.png Graphic file (type png)
+<use ../figures/fig_weight_dist.png>
+Package pdftex.def Info: ../figures/fig_weight_dist.png  used on input line 116.
+(pdftex.def)             Requested size: 214.20154pt x 121.0697pt.
+<../figures/fig_risk_dist.png, id=11, 426.393pt x 281.853pt>
+File: ../figures/fig_risk_dist.png Graphic file (type png)
+<use ../figures/fig_risk_dist.png>
+Package pdftex.def Info: ../figures/fig_risk_dist.png  used on input line 123.
+(pdftex.def)             Requested size: 214.20154pt x 141.58846pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--124
+\OT1/ptm/m/n/8 Fig. III.  Class dis-tri-bu-tion af-ter de-riv-ing the tar-get from
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 124--124
+\OT1/pcr/m/n/8 studentAssessment.csv\OT1/ptm/m/n/8 : 22 High Risk ($\OT1/cmr/m/n/8 11\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 7%$\OT1/ptm/m/n/8 ) ver-sus 166
+ []
+
+<../figures/fig_avg_weight_by_type.png, id=12, 426.393pt x 281.853pt>
+File: ../figures/fig_avg_weight_by_type.png Graphic file (type png)
+<use ../figures/fig_avg_weight_by_type.png>
+Package pdftex.def Info: ../figures/fig_avg_weight_by_type.png  used on input line 130.
+(pdftex.def)             Requested size: 214.20154pt x 141.58846pt.
+<../figures/fig_module_counts.png, id=13, 570.933pt x 281.853pt>
+File: ../figures/fig_module_counts.png Graphic file (type png)
+<use ../figures/fig_module_counts.png>
+Package pdftex.def Info: ../figures/fig_module_counts.png  used on input line 137.
+(pdftex.def)             Requested size: 214.20154pt x 105.74622pt.
 
 
 [1
 
 ]
-<../figures/fig_assessment_type_dist.png, id=17, 426.393pt x 281.853pt>
-File: ../figures/fig_assessment_type_dist.png Graphic file (type png)
-<use ../figures/fig_assessment_type_dist.png>
-Package pdftex.def Info: ../figures/fig_assessment_type_dist.png  used on input line 111.
-(pdftex.def)             Requested size: 214.20154pt x 141.58846pt.
-<../figures/fig_weight_dist.png, id=19, 498.663pt x 281.853pt>
-File: ../figures/fig_weight_dist.png Graphic file (type png)
-<use ../figures/fig_weight_dist.png>
-Package pdftex.def Info: ../figures/fig_weight_dist.png  used on input line 118.
-(pdftex.def)             Requested size: 214.20154pt x 121.0697pt.
-<../figures/fig_risk_dist.png, id=20, 426.393pt x 281.853pt>
-File: ../figures/fig_risk_dist.png Graphic file (type png)
-<use ../figures/fig_risk_dist.png>
-Package pdftex.def Info: ../figures/fig_risk_dist.png  used on input line 125.
-(pdftex.def)             Requested size: 214.20154pt x 141.58846pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-\OT1/ptm/m/n/8 Fig. III.  Class dis-tri-bu-tion af-ter de-riv-ing the tar-get from
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--126
-\OT1/pcr/m/n/8 studentAssessment.csv\OT1/ptm/m/n/8 : 22 High Risk ($\OT1/cmr/m/n/8 11\OML/cmm/m/it/8 :\OT1/cmr/m/n/8 7%$\OT1/ptm/m/n/8 ) ver-sus 166
- []
-
-<../figures/fig_avg_weight_by_type.png, id=21, 426.393pt x 281.853pt>
-File: ../figures/fig_avg_weight_by_type.png Graphic file (type png)
-<use ../figures/fig_avg_weight_by_type.png>
-Package pdftex.def Info: ../figures/fig_avg_weight_by_type.png  used on input line 132.
-(pdftex.def)             Requested size: 214.20154pt x 141.58846pt.
-<../figures/fig_module_counts.png, id=22, 570.933pt x 281.853pt>
-File: ../figures/fig_module_counts.png Graphic file (type png)
-<use ../figures/fig_module_counts.png>
-Package pdftex.def Info: ../figures/fig_module_counts.png  used on input line 139.
-(pdftex.def)             Requested size: 214.20154pt x 105.74622pt.
-
-
-
-
-[2 <../figures/fig_assessment_type_dist.png> <../figures/fig_weight_dist.png> <../figures/fig_risk_dist.png> <../figures/fig_avg_weight_by_type.png> <../figures/fig_module_counts.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 []\OT1/ptm/m/it/10 Assessment-level fea-tures \OT1/ptm/m/n/10 (9): \OT1/pcr/m/n/10 module_id\OT1/ptm/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 \OT1/pcr/m/n/10 presentation_id\OT1/ptm/m/n/10 , \OT1/pcr/m/n/10 assessment_type_id\OT1/ptm/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 \OT1/pcr/m/n/10 date_norm\OT1/ptm/m/n/10 , \OT1/pcr/m/n/10 weight_norm\OT1/ptm/m/n/10 , \OT1/pcr/m/n/10 is_exam \OT1/ptm/m/n/10 (bi-nary
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 \OT1/ptm/m/n/10 flag), \OT1/pcr/m/n/10 is_high_weight \OT1/ptm/m/n/10 (\OT1/pcr/m/n/10 weight$\OMS/cmsy/m/n/10 ^^U  \OT1/cmr/m/n/10 50%$\OT1/ptm/m/n/10 ),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--161
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
 \OT1/pcr/m/n/10 assessment_period \OT1/ptm/m/n/10 (Early/Mid/Late tri-sec-tion of
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 162--163
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
 []\OT1/ptm/m/it/10 VLE cat-a-log fea-tures \OT1/ptm/m/n/10 (3): for each
  []
 
 
+Underfull \vbox (badness 1742) has occurred while \output is active []
 
-<../figures/fig_learning_curve.png, id=37, 498.663pt x 281.853pt>
+
+
+[2 <../figures/fig_assessment_type_dist.png> <../figures/fig_weight_dist.png> <../figures/fig_risk_dist.png> <../figures/fig_avg_weight_by_type.png> <../figures/fig_module_counts.png>]
+
+<../figures/fig_learning_curve.png, id=40, 498.663pt x 281.853pt>
 File: ../figures/fig_learning_curve.png Graphic file (type png)
 <use ../figures/fig_learning_curve.png>
-Package pdftex.def Info: ../figures/fig_learning_curve.png  used on input line 228.
+Package pdftex.def Info: ../figures/fig_learning_curve.png  used on input line 226.
 (pdftex.def)             Requested size: 214.20154pt x 121.0697pt.
 
 
 [3 <../figures/fig_learning_curve.png>]
-<../figures/fig_confusion_matrix.png, id=49, 362.0727pt x 281.853pt>
+<../figures/fig_confusion_matrix.png, id=48, 362.0727pt x 281.853pt>
 File: ../figures/fig_confusion_matrix.png Graphic file (type png)
 <use ../figures/fig_confusion_matrix.png>
-Package pdftex.def Info: ../figures/fig_confusion_matrix.png  used on input line 268.
+Package pdftex.def Info: ../figures/fig_confusion_matrix.png  used on input line 285.
 (pdftex.def)             Requested size: 189.0pt x 147.12779pt.
-<../figures/fig_metrics_bar.png, id=50, 497.9403pt x 281.853pt>
+
+
+<../figures/fig_metrics_bar.png, id=49, 497.9403pt x 281.853pt>
 File: ../figures/fig_metrics_bar.png Graphic file (type png)
 <use ../figures/fig_metrics_bar.png>
-Package pdftex.def Info: ../figures/fig_metrics_bar.png  used on input line 291.
+Package pdftex.def Info: ../figures/fig_metrics_bar.png  used on input line 308.
 (pdftex.def)             Requested size: 214.20154pt x 121.24603pt.
-
-
-<../figures/fig_feature_weights.png, id=51, 570.933pt x 281.853pt>
+<../figures/fig_feature_weights.png, id=50, 570.933pt x 281.853pt>
 File: ../figures/fig_feature_weights.png Graphic file (type png)
 <use ../figures/fig_feature_weights.png>
-Package pdftex.def Info: ../figures/fig_feature_weights.png  used on input line 303.
+Package pdftex.def Info: ../figures/fig_feature_weights.png  used on input line 320.
 (pdftex.def)             Requested size: 231.83954pt x 114.45088pt.
 
-Underfull \hbox (badness 1708) in paragraph at lines 325--326
+Underfull \hbox (badness 1708) in paragraph at lines 342--343
 \OT1/ptm/m/n/10 en-ters with a neg-a-tive weight: pre-sen-ta-tions that di-ver-
  []
 
 
-Underfull \hbox (badness 1571) in paragraph at lines 325--326
+Underfull \hbox (badness 1571) in paragraph at lines 342--343
 \OT1/ptm/m/n/10 wiki pages) have lower as-sess-ment fail rates, match-ing
  []
 
 
 
 [4 <../figures/fig_confusion_matrix.png> <../figures/fig_metrics_bar.png> <../figures/fig_feature_weights.png>]
-Overfull \hbox (5.69339pt too wide) in paragraph at lines 334--343
+Underfull \hbox (badness 10000) in paragraph at lines 359--359
+[]|\OT1/ptm/m/n/9 Proposed (with class
+ []
+
+
+Underfull \hbox (badness 2452) in paragraph at lines 368--369
+[]\OT1/ptm/m/n/10 The De-ci-sion Tree, trained with $[] \OT1/cmr/m/n/10 = 5$\OT1/ptm/m/n/10 ,
+ []
+
+<../figures/fig_dt_confusion_matrix.png, id=58, 336.7782pt x 281.853pt>
+File: ../figures/fig_dt_confusion_matrix.png Graphic file (type png)
+<use ../figures/fig_dt_confusion_matrix.png>
+Package pdftex.def Info: ../figures/fig_dt_confusion_matrix.png  used on input line 385.
+(pdftex.def)             Requested size: 189.0pt x 158.18065pt.
+<../figures/fig_dt_feature_importance.png, id=59, 570.933pt x 354.123pt>
+File: ../figures/fig_dt_feature_importance.png Graphic file (type png)
+<use ../figures/fig_dt_feature_importance.png>
+Package pdftex.def Info: ../figures/fig_dt_feature_importance.png  used on input line 392.
+(pdftex.def)             Requested size: 231.83954pt x 143.79726pt.
+
+
+<../figures/fig_rf_confusion_matrix.png, id=60, 336.7782pt x 281.853pt>
+File: ../figures/fig_rf_confusion_matrix.png Graphic file (type png)
+<use ../figures/fig_rf_confusion_matrix.png>
+Package pdftex.def Info: ../figures/fig_rf_confusion_matrix.png  used on input line 418.
+(pdftex.def)             Requested size: 189.0pt x 158.18065pt.
+<../figures/fig_rf_feature_importance.png, id=61, 570.933pt x 354.123pt>
+File: ../figures/fig_rf_feature_importance.png Graphic file (type png)
+<use ../figures/fig_rf_feature_importance.png>
+Package pdftex.def Info: ../figures/fig_rf_feature_importance.png  used on input line 425.
+(pdftex.def)             Requested size: 231.83954pt x 143.79726pt.
+
+
+[5 <../figures/fig_dt_confusion_matrix.png> <../figures/fig_dt_feature_importance.png>]
+Overfull \hbox (3.67848pt too wide) in paragraph at lines 440--449
  [][] 
  []
 
+<../figures/fig_comparison_metrics.png, id=67, 642.4803pt x 354.123pt>
+File: ../figures/fig_comparison_metrics.png Graphic file (type png)
+<use ../figures/fig_comparison_metrics.png>
+Package pdftex.def Info: ../figures/fig_comparison_metrics.png  used on input line 453.
+(pdftex.def)             Requested size: 239.39923pt x 131.95285pt.
+<../figures/fig_comparison_feature_importance.png, id=68, 787.0203pt x 354.123pt>
+File: ../figures/fig_comparison_feature_importance.png Graphic file (type png)
+<use ../figures/fig_comparison_feature_importance.png>
+Package pdftex.def Info: ../figures/fig_comparison_feature_importance.png  used on input line 460.
+(pdftex.def)             Requested size: 239.39923pt x 107.71826pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--352
-[]\OT1/ptm/m/n/10 Several ex-ten-sions would strengthen the pipeline.
+Underfull \hbox (badness 1460) in paragraph at lines 465--466
+\OT1/ptm/m/n/10 just back this up dif-fer-ently: LR puts a large pos-i-tive
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--352
-\OT1/ptm/m/n/10 Re-pivoting to student-level mod-elling (joined
+Underfull \hbox (badness 2970) in paragraph at lines 465--466
+\OT1/ptm/m/n/10 and the \OT1/pcr/m/n/10 is_exam\OT1/ptm/m/n/10 /\OT1/pcr/m/n/10 is_high_weight \OT1/ptm/m/n/10 flags, the De-ci-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 351--352
-\OT1/ptm/m/n/10 with \OT1/pcr/m/n/10 studentInfo.csv \OT1/ptm/m/n/10 and---where available---
+Underfull \hbox (badness 2512) in paragraph at lines 465--466
+\OT1/ptm/m/n/10 sion Tree spreads the rest across \OT1/pcr/m/n/10 weight_norm \OT1/ptm/m/n/10 and
  []
 
 
-Underfull \hbox (badness 4072) in paragraph at lines 351--352
-\OT1/ptm/m/n/10 semesters would sim-u-late pro-duc-tion de-ploy-ment more
+
+
+
+[6 <../figures/fig_rf_confusion_matrix.png> <../figures/fig_rf_feature_importance.png> <../figures/fig_comparison_metrics.png> <../figures/fig_comparison_feature_importance.png>]
+Underfull \hbox (badness 2617) in paragraph at lines 473--474
+\OT1/ptm/m/n/10 and, where avail-able, \OT1/pcr/m/n/10 studentVle.csv \OT1/ptm/m/n/10 click-streams)
  []
-
-
 
 
 ** Conference Paper **
@@ -467,24 +519,28 @@ Before submitting the final camera ready copy, remember to:
 
 
 
-[5] (Student_Risk_DWM_Report.aux)
+
+
+[7
+
+] (Student_Risk_DWM_Report.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-25>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3843 strings out of 473536
- 63650 string characters out of 5715440
- 462288 words of memory out of 5000000
- 27018 multiletter control sequences out of 15000+600000
- 600530 words of font info for 124 fonts, out of 8000000 for 9000
+ 3912 strings out of 473536
+ 66266 string characters out of 5715440
+ 464633 words of memory out of 5000000
+ 27087 multiletter control sequences out of 15000+600000
+ 601401 words of font info for 124 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,11n,65p,1682b,258s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Student_Risk_DWM_Report.pdf (6 pages, 469743 bytes).
+ 57i,11n,65p,1363b,258s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmbi8a.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><C:/Users/USER/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Student_Risk_DWM_Report.pdf (8 pages, 643948 bytes).
 PDF statistics:
- 152 PDF objects out of 1000 (max. 8388607)
+ 177 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

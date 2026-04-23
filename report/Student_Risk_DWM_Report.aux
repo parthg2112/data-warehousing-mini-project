@@ -7,42 +7,76 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-C}}Research Gap}{1}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {III}Methodology}{1}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Dataset Description}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Preprocessing and Target Derivation}{1}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {I}{\ignorespaces Distribution of assessment types in the retained OULAD slice.}}{2}{}\protected@file@percent }
 \newlabel{fig:typedist}{{I}{2}{}{figure.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {II}{\ignorespaces Distribution of assessment weights in the retained OULAD slice.}}{2}{}\protected@file@percent }
 \newlabel{fig:weightdist}{{II}{2}{}{figure.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Preprocessing and Target Derivation}{2}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {III}{\ignorespaces Class distribution after deriving the target from \texttt  {studentAssessment.csv}: 22 High Risk ($11.7\%$) versus 166 Low Risk ($88.3\%$).}}{2}{}\protected@file@percent }
 \newlabel{fig:riskdist}{{III}{2}{}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Feature Engineering}{2}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {IV}{\ignorespaces Average assessment weight grouped by assessment type.}}{2}{}\protected@file@percent }
 \newlabel{fig:avgweight}{{IV}{2}{}{figure.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {V}{\ignorespaces Assessment counts per module.}}{2}{}\protected@file@percent }
 \newlabel{fig:modulecounts}{{V}{2}{}{figure.5}{}}
+\citation{cart1984}
+\citation{breiman2001rf}
 \@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Stratified train--test split summary.}}{3}{}\protected@file@percent }
 \newlabel{tab:split}{{I}{3}{}{table.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}Feature Engineering}{3}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-D}}Stratified Train--Test Split}{3}{}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {VI}{\ignorespaces Learning curve: binary cross-entropy loss per $100$ iterations of gradient descent.}}{3}{}\protected@file@percent }
-\newlabel{fig:learningcurve}{{VI}{3}{}{figure.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-E}}Logistic Regression from Scratch}{3}{}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-F}}Class-Weighted Training}{3}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {VI}{\ignorespaces Learning curve: binary cross-entropy loss per $100$ iterations of gradient descent.}}{3}{}\protected@file@percent }
+\newlabel{fig:learningcurve}{{VI}{3}{}{figure.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-G}}Decision Tree (CART) from Scratch}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-H}}Random Forest from Scratch}{3}{}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Confusion matrix for the proposed model.}}{4}{}\protected@file@percent }
 \newlabel{tab:cm}{{II}{4}{}{table.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {VII}{\ignorespaces Confusion matrix heatmap for the proposed model on the stratified test set.}}{4}{}\protected@file@percent }
 \newlabel{fig:cm}{{VII}{4}{}{figure.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-I}}Evaluation Metrics}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Results and Discussion}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Logistic Regression Results}{4}{}\protected@file@percent }
+\newlabel{sec:results-lr}{{\mbox  {IV-A}}{4}{}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-A}1}Confusion Matrix}{4}{}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Test-set performance of the proposed model.}}{4}{}\protected@file@percent }
 \newlabel{tab:metrics}{{III}{4}{}{table.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-G}}Evaluation Metrics}{4}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Results and Discussion}{4}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Confusion Matrix}{4}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Headline Metrics}{4}{}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {VIII}{\ignorespaces Evaluation metrics for the proposed model.}}{4}{}\protected@file@percent }
 \newlabel{fig:metrics}{{VIII}{4}{}{figure.8}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {IX}{\ignorespaces Learned feature weights (sorted by absolute magnitude).}}{4}{}\protected@file@percent }
 \newlabel{fig:featureweights}{{IX}{4}{}{figure.9}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Top five learned feature weights (absolute magnitude).}}{4}{}\protected@file@percent }
 \newlabel{tab:weights}{{IV}{4}{}{table.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Feature Weights and Interpretation}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-A}2}Headline Metrics}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-A}3}Feature Weights and Interpretation}{4}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Ablation across design choices.}}{5}{}\protected@file@percent }
+\newlabel{tab:ablation}{{V}{5}{}{table.5}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Decision Tree test-set performance.}}{5}{}\protected@file@percent }
+\newlabel{tab:dt-metrics}{{VI}{5}{}{table.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {IV-A}4}Ablation: Target Leakage and Class Weighting}{5}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Decision Tree Results}{5}{}\protected@file@percent }
+\newlabel{sec:results-dt}{{\mbox  {IV-B}}{5}{}{subsection.4.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {X}{\ignorespaces Decision Tree confusion matrix (TP$=4$, TN$=32$, FP$=1$, FN$=0$).}}{5}{}\protected@file@percent }
+\newlabel{fig:dt-cm}{{X}{5}{}{figure.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {XI}{\ignorespaces Decision Tree normalised feature importance (sum of $|S| \cdot \Delta G$ per feature).}}{5}{}\protected@file@percent }
+\newlabel{fig:dt-featimp}{{XI}{5}{}{figure.11}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VII}{\ignorespaces Random Forest test-set performance.}}{5}{}\protected@file@percent }
+\newlabel{tab:rf-metrics}{{VII}{5}{}{table.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Random Forest Results}{5}{}\protected@file@percent }
+\newlabel{sec:results-rf}{{\mbox  {IV-C}}{5}{}{subsection.4.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {XII}{\ignorespaces Random Forest confusion matrix (TP$=3$, TN$=32$, FP$=1$, FN$=1$).}}{6}{}\protected@file@percent }
+\newlabel{fig:rf-cm}{{XII}{6}{}{figure.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {XIII}{\ignorespaces Random Forest normalised feature importance, averaged across the $50$ constituent trees.}}{6}{}\protected@file@percent }
+\newlabel{fig:rf-featimp}{{XIII}{6}{}{figure.13}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {VIII}{\ignorespaces Three-model comparison on the held-out test set ($n_{\mathrm  {test}} = 37$).}}{6}{}\protected@file@percent }
+\newlabel{tab:cmp}{{VIII}{6}{}{table.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Comparative Analysis}{6}{}\protected@file@percent }
+\newlabel{sec:results-cmp}{{\mbox  {IV-D}}{6}{}{subsection.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {XIV}{\ignorespaces Per-metric comparison across the three classifiers.}}{6}{}\protected@file@percent }
+\newlabel{fig:cmp-metrics}{{XIV}{6}{}{figure.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {XV}{\ignorespaces Normalised feature importance across LR (linear-weight magnitude), DT (Gini-gain), and RF (averaged Gini-gain). The leave-one-out \texttt  {peer\_fail\_rate} dominates in every model.}}{6}{}\protected@file@percent }
+\newlabel{fig:cmp-featimp}{{XV}{6}{}{figure.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{6}{}\protected@file@percent }
 \bibcite{ref1}{I}
 \bibcite{ref2}{II}
 \bibcite{ref3}{III}
@@ -52,10 +86,8 @@
 \bibcite{ref7}{VII}
 \bibcite{ref8}{VIII}
 \bibcite{ref9}{IX}
-\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Ablation across design choices.}}{5}{}\protected@file@percent }
-\newlabel{tab:ablation}{{V}{5}{}{table.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Ablation: Target Leakage and Class Weighting}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {V}Conclusion}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Future Scope}{5}{}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{References}{5}{}\protected@file@percent }
-\gdef \@abspage@last{6}
+\bibcite{breiman2001rf}{X}
+\bibcite{cart1984}{XI}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Future Scope}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{7}{}\protected@file@percent }
+\gdef \@abspage@last{8}
