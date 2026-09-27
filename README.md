@@ -1,61 +1,50 @@
 # Student Risk Prediction using Logistic Regression
 
-![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+Predicts whether a student assessment is high-risk or low-risk using Logistic Regression
+implemented entirely from scratch (no ML libraries), on the Open University Learning
+Analytics Dataset (OULAD). Built as a Data Warehousing and Mining mini-project.
 
-Predicting student assessment risk levels using Logistic Regression implemented from scratch. This project utilizes the **Open University Learning Analytics Dataset (OULAD)** to identify high-risk assessments based on weighting, timing, and assessment type.
+## Features
 
-## 🚀 Overview
+- Risk classification of assessments from metadata: weighting, due-date timing, assessment type (TMA, CMA, Exam)
+- Logistic Regression (with Decision Tree and Random Forest baselines) implemented from scratch — no scikit-learn
+- Class-imbalance handling via class-weighted training (`pos_weight = n_neg/n_pos`), recall-first
+- Hand-rolled evaluation: Accuracy, Precision, Recall, F1, confusion matrix, learning curve
+- A noise-feature control experiment validating that learned weights are not spurious
+- 17 diagnostic figures and a full project report (`report/Student_Risk_DWM_Report.pdf`)
 
-Educational institutions can use predictive analytics to flag at-risk students before performance deteriorates. This notebook demonstrates:
-- **Feature Engineering**: Deriving risk signals from assessment metadata.
-- **Mathematical Implementation**: Logistic Regression built from scratch (no ML libraries).
-- **Evaluation**: Performance metrics including Accuracy, Precision, Recall, and F1-Score.
+## Tech Stack
 
-## 📁 Project Structure
+Python, pandas, NumPy, Matplotlib, Jinja2, Jupyter Notebook
 
-```text
-.
-├── data/               # Raw OULAD dataset files (CSV)
-├── notebooks/          # Jupyter notebooks with analysis
-├── exports/            # Exported reports (HTML, PDF)
-├── requirements.txt    # Project dependencies
-├── .gitignore          # Git exclusion rules
-└── README.md           # Project documentation
+## Setup
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate        # Windows  (Linux/macOS: source .venv/bin/activate)
+pip install -r requirements.txt
+jupyter notebook notebooks/student_risk_prediction_logistic_regression.ipynb
 ```
 
-## 🛠️ Installation & Setup
+The OULAD CSVs (`assessments.csv`, `courses.csv`, `studentAssessment.csv`, `studentInfo.csv`,
+`studentRegistration.csv`, `vle.csv`) ship in `data/`.
 
-1. **Clone the repository**:
-   ```bash
-   git clone <your-repo-url>
-   cd dwm_project
-   ```
+## Results
 
-2. **Create a virtual environment**:
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   ```
+All three classifiers are judged on the same 37 test rows (13 features, stratified 80/20
+split), so differences reflect the algorithms themselves. In an early-warning setting the
+priority is recall, then F1, then precision.
 
-3. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
+| Model | Accuracy | Precision | Recall | F1 |
+|---|---|---|---|---|
+| Logistic Regression (from scratch) | 78.38% | 33.33% | 100.00% | 50.00% |
+| Decision Tree (CART, from scratch) | 97.30% | 80.00% | 100.00% | 88.89% |
+| Random Forest (from scratch) | 94.59% | 75.00% | 75.00% | 75.00% |
 
-4. **Run the analysis**:
-   ```bash
-   jupyter notebook notebooks/student_risk_prediction_logistic_regression.ipynb
-   ```
+- Notebook HTML/PDF exports: `exports/`
+- Full report: `report/Student_Risk_DWM_Report.pdf`
+- Figures: `figures/`
 
-## 📊 Dataset
+## License
 
-The project uses the **OULAD** dataset. The primary file analyzed is `assessments.csv`, containing:
-- `code_module`: Module identifier.
-- `assessment_type`: TMA, CMA, or Exam.
-- `date`: Due date day.
-- `weight`: Percentage weight in final grade.
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT — see [LICENSE](LICENSE).
